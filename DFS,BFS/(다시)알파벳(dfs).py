@@ -59,6 +59,7 @@
 
 import sys
 from collections import deque
+# sys.stdin.readline은 개행값 처리를 하지 않고 프럼프트 메시지를 방생시키지 않기 때문에 input() 보다 빠르다.
 input = sys.stdin.readline
 
 
