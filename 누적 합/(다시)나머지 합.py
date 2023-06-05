@@ -29,7 +29,7 @@ total = 0
 
 for i in range(N):
     total += N_list[i]
-    numRemainder[total % M] += 1
+    numRemainder[total % M] += 1 ### 나머지 같은 것의 갯수 세기
 
 answer = numRemainder[0]
 print(numRemainder)
