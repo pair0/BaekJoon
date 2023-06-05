@@ -32,8 +32,10 @@ for i in range(N):
     numRemainder[total % M] += 1
 
 answer = numRemainder[0]
+print(numRemainder)
 
 for i in numRemainder:
     answer += i*(i-1)//2 ### 나머지가 같은 것끼리 조합
 
 print(answer)
+
