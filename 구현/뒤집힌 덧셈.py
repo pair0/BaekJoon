@@ -3,7 +3,6 @@ input = sys.stdin.readline
 
 def Rev(N):
     N = int(str(N)[::-1])
-
     return N
 
 
