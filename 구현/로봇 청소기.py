@@ -1,5 +1,6 @@
 from collections import deque
 import sys
+
 input = sys.stdin.readline
 
 
@@ -59,3 +60,6 @@ if __name__ == "__main__":
     answer = 0
     bfs(graph, r, c, d)
     print(answer)
+
+
+from itertools import 

@@ -18,4 +18,5 @@ for i in range(1, N):
         heapq.heappop(room)
         heapq.heappush(room, queue[i][1])
 
+
 print(len(room))
