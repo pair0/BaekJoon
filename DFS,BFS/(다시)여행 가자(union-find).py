@@ -1,5 +1,9 @@
 import sys
+
 input = sys.stdin.readline
+
+from collections import defaultdict
+
 
 def find(a):
     if parents[a] != a:
@@ -15,27 +19,44 @@ def union(a, b):
     else:
         parents[b] = a
 
+
 if __name__ == "__main__":
-    N = int(input()) ### 200 이하 (도시)
-    M = int(input()) ### 1000 이하
-    graph = []
-    parents = list(range(N))
+    edges = [
+        [4, 11],
+        [1, 12],
+        [8, 3],
+        [12, 7],
+        [4, 2],
+        [7, 11],
+        [4, 8],
+        [9, 6],
+        [10, 11],
+        [6, 10],
+        [3, 5],
+        [11, 1],
+        [5, 3],
+        [11, 9],
+        [3, 8],
+    ]
 
-    for _ in range(N):
-        graph.append(list(map(int, input().split())))
+    answer = []
+    N = max(sum(edges, []))
+    graph = defaultdict(list)
+    parents = list(range(N + 1))
 
-    plan = list(map(int, input().split()))    
+    for edge in edges:
+        graph[edge[0]].append(edge[1])
+
     print(graph)
-    for i in range(N):
-        for j in range(N):
-            if graph[i][j] == 1:
-                union(i,j)
+    for i in range(1, N + 1):
+        for j in range(len(graph[i])):
+            union(i, j)
         print(parents)
 
     answer = "YES"
-    for i in range(1, M):
-        if parents[plan[i] - 1] != parents[plan[0] - 1]:
-            answer = "NO"
-            break
-    
+    # for i in range(1, M):
+    #     if parents[plan[i] - 1] != parents[plan[0] - 1]:
+    #         answer = "NO"
+    #         break
+
     print(answer)
